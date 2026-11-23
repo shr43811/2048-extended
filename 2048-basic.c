@@ -147,7 +147,7 @@ int can_move(void) {
     return 0;
 }
 
-// 2를 4로 바꾸는 아이템
+// 아이템 사용
 int use_item(void) {
     if (items <= 0) {
         return 0;
@@ -155,7 +155,7 @@ int use_item(void) {
 
     int changed = 0;
 
-    for (int i = 0; i < SIZE; i++) {
+    for (int i = 0; i < SIZE; i++) { // 2를 4로 바꾸는 아이템
         for (int j = 0; j < SIZE; j++) {
             if (board[i][j] == 2) {
                 board[i][j] = 4;
@@ -182,6 +182,7 @@ int move(char dir) {
         }
     }
 
+    // 위로 이동
     if (dir == 'w' || dir == 'W') {
         for (int j = 0; j < SIZE; j++) {
             for (int i = 1; i < SIZE; i++) {
@@ -203,6 +204,8 @@ int move(char dir) {
             }
         }
     }
+        
+    // 아래로 이동
     else if (dir == 's' || dir == 'S') {
         for (int j = 0; j < SIZE; j++) {
             for (int i = SIZE - 2; i >= 0; i--) {
@@ -224,6 +227,8 @@ int move(char dir) {
             }
         }
     }
+
+    // 좌로 이동
     else if (dir == 'a' || dir == 'A') {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 1; j < SIZE; j++) {
@@ -245,6 +250,8 @@ int move(char dir) {
             }
         }
     }
+
+    // 우로 이동
     else if (dir == 'd' || dir == 'D') {
         for (int i = 0; i < SIZE; i++) {
             for (int j = SIZE - 2; j >= 0; j--) {
